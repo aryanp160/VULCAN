@@ -1,7 +1,5 @@
 # 🧠 TRINETRA: AI-Powered Crowd Safety System
 
-**Team ID:** TH0000  
-**Team Name:** Simhastha Sect  
 
 ---
 
@@ -36,6 +34,14 @@ Trinetra calculates a proactive **Chaos Score** based on:
 | **S (Surge)**   | How rapidly is the crowd growing? |
 
 When the score remains high, Trinetra dispatches alerts to volunteers—**turning AI predictions into real-time action**.
+
+### Performance Improvements
+| Metric         | Before             | After          |
+| -------------- | ------------------ | -------------- |
+| Inference Time | ~40 sec/frame      | ~0.9 sec/frame |
+| Backend Design | Single-threaded    | Multi-process  |
+| Model Runtime  | PyTorch            | ONNX Runtime   |
+| Alert Latency  | Delayed / Blocking | Near Real-Time |
 
 ---
 
