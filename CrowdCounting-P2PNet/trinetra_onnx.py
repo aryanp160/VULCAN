@@ -10,8 +10,9 @@ os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
 # ========================================================================================
 # --- VULCAN CONFIGURATION (v1.1 FINAL) ---
-VIDEO_PATH = "crowd_video.mp4"
-ONNX_MODEL_PATH = "p2pnet.onnx"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+VIDEO_PATH = os.path.join(BASE_DIR, "crowd_video.mp4")
+ONNX_MODEL_PATH = os.path.join(BASE_DIR, "p2pnet.onnx")
 PERFORMANCE_RESIZE_FACTOR = 0.9
 BLUR_THRESHOLD = 100.0
 TARGET_ANALYSIS_FPS = 0.5 # <-- NEW: Analyze 1 frame every 2 seconds (1 / 2.0 = 0.5 FPS)
