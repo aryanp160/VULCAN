@@ -85,7 +85,9 @@ def ingestion_process(video_path, frame_queue):
     try:
         while True:
             ret, frame = video_capture.read()
-            if not ret: break
+            if not ret:
+                video_capture.set(cv2.CAP_PROP_POS_FRAMES, 0)
+                continue
             if frame_counter % frames_to_skip == 0:
                 if not check_blur(frame, BLUR_THRESHOLD):
                     if PERFORMANCE_RESIZE_FACTOR < 1.0:
