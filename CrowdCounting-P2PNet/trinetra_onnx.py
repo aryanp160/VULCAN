@@ -9,7 +9,7 @@ import onnxruntime as ort
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
 # ========================================================================================
-# --- TRINETRA CONFIGURATION (v1.1 FINAL) ---
+# --- VULCAN CONFIGURATION (v1.1 FINAL) ---
 VIDEO_PATH = "crowd_video.mp4"
 ONNX_MODEL_PATH = "p2pnet.onnx"
 PERFORMANCE_RESIZE_FACTOR = 0.9
@@ -172,7 +172,7 @@ def ui_process(result_queue):
 
 if __name__ == "__main__":
     # This block remains the same
-    print("--- Initializing Trinetra ONNX System (v1.1) ---")
+    print("--- Initializing Vulcan ONNX System (v1.1) ---")
     frame_queue = Queue(maxsize=1)
     result_queue = Queue(maxsize=1)
     p_ingestion = Process(target=ingestion_process, args=(VIDEO_PATH, frame_queue, result_queue))
@@ -184,4 +184,4 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print("\n[System] Keyboard interrupt detected. Shutting down processes.")
         p_ingestion.terminate(); p_ai.terminate(); p_ui.terminate()
-    print("--- Trinetra System Shut Down ---")
+    print("--- Vulcan System Shut Down ---")

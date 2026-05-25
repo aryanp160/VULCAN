@@ -21,7 +21,7 @@ logging.getLogger('engineio').setLevel(logging.ERROR)
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
 # ========================================================================================
-# --- TRINETRA CONFIGURATION (v1.2) ---
+# --- VULCAN CONFIGURATION (v1.2) ---
 VIDEO_PATH = "crowd_video.mp4"
 ONNX_MODEL_PATH = "p2pnet.onnx"
 PERFORMANCE_RESIZE_FACTOR = 0.75
@@ -223,7 +223,7 @@ def socket_server_process(result_queue, shared_alert_dict, shared_volunteers_dic
     print("[API Server] Process finished.")
 
 if __name__ == "__main__":
-    print("--- Initializing Trinetra Full-Stack WebSocket System ---")
+    print("--- Initializing Vulcan Full-Stack WebSocket System ---")
     
     with Manager() as manager:
         frame_queue = manager.Queue(maxsize=1)
@@ -242,5 +242,5 @@ if __name__ == "__main__":
             print("\n[System] Keyboard interrupt detected. Shutting down.")
             p_ingestion.terminate(); p_ai.terminate(); p_api.terminate()
         
-        print("--- Trinetra System Shut Down ---")
+        print("--- Vulcan System Shut Down ---")
 

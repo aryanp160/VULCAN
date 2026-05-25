@@ -14,7 +14,7 @@ from models import build_model
 
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
 # ========================================================================================
-# --- TRINETRA CONFIGURATION ---
+# --- VULCAN CONFIGURATION ---
 VIDEO_PATH = "crowd_video.mp4"
 PROCESSING_INTERVAL_SECONDS = 3.0
 PERFORMANCE_RESIZE_FACTOR = 0.25
@@ -187,7 +187,7 @@ def ai_worker_process(frame_queue):
     print("[AI Worker] Process finished.")
 
 if __name__ == "__main__":
-    print("--- Initializing Trinetra 2-Process System ---")
+    print("--- Initializing Vulcan 2-Process System ---")
     frame_queue = Queue(maxsize=1)
     
     p1 = Process(target=ingestion_process, args=(VIDEO_PATH, frame_queue))

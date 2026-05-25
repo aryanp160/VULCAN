@@ -1,11 +1,11 @@
-# 🧠 TRINETRA: AI-Powered Crowd Safety System
+# 🧠 VULCAN: AI-Powered Crowd Safety System
 
 
 ---
 
 ## 🔍 Overview
 
-**Trinetra** is a full-stack, real-time AI prototype designed to prevent crowd-related tragedies.  
+**Vulcan** is a full-stack, real-time AI prototype designed to prevent crowd-related tragedies.  
 It analyzes live video feeds using an optimized deep learning model to understand complex crowd dynamics.  
 
 The system calculates a multi-factor **Chaos Score** and broadcasts it to a command dashboard. When risk remains high, alerts are dispatched to a dedicated, mobile-first app for on-ground volunteer teams.
@@ -25,7 +25,7 @@ These are **primary triggers** for stampedes.
 
 ### ✅ Solution: The Chaos Score
 
-Trinetra calculates a proactive **Chaos Score** based on:
+Vulcan calculates a proactive **Chaos Score** based on:
 
 | Metric | Description |
 |--------|-------------|
@@ -33,7 +33,7 @@ Trinetra calculates a proactive **Chaos Score** based on:
 | **F (Flow)**    | How chaotic is the movement? |
 | **S (Surge)**   | How rapidly is the crowd growing? |
 
-When the score remains high, Trinetra dispatches alerts to volunteers—**turning AI predictions into real-time action**.
+When the score remains high, Vulcan dispatches alerts to volunteers—**turning AI predictions into real-time action**.
 
 ### Performance Improvements
 | Metric         | Before             | After          |
@@ -47,7 +47,7 @@ When the score remains high, Trinetra dispatches alerts to volunteers—**turnin
 
 ## ⚙️ Logic & Workflow
 
-Trinetra uses a **decoupled, multi-process architecture** to ensure real-time performance:
+Vulcan uses a **decoupled, multi-process architecture** to ensure real-time performance:
 
 ### 🧪 1. Data Collection (Ingestion)
 - Reads frames from a video source (`crowd_video.mp4`)
@@ -149,8 +149,8 @@ Trinetra uses a **decoupled, multi-process architecture** to ensure real-time pe
 3. **Set up the Main Dashboard**
 
     ```bash
-    # Navigate to the trinetra-dashboard folder
-    cd path/to/trinetra-dashboard
+    # Navigate to the vulcan-dashboard folder
+    cd path/to/vulcan-dashboard
     npm install
     npm run build
     ```
@@ -158,8 +158,8 @@ Trinetra uses a **decoupled, multi-process architecture** to ensure real-time pe
 4. **Set up the Volunteer App**
 
     ```bash
-    # Navigate to the trinetra-volunteer-app folder
-    cd path/to/trinetra-volunteer-app
+    # Navigate to the vulcan-volunteer-app folder
+    cd path/to/vulcan-volunteer-app
     npm install
     npm run build
     ```
@@ -192,7 +192,7 @@ Trinetra uses a **decoupled, multi-process architecture** to ensure real-time pe
 
 ---
 
-**Thank you for checking out Trinetra!**  
+**Thank you for checking out Vulcan!**  
 For questions or contributions, please open an issue or pull request.
 
 ---

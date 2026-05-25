@@ -29,7 +29,7 @@ export default function App() {
     const socket = socketRef.current;
 
     socket.on('connect', () => {
-      console.log(`Volunteer '${volunteerName}' connected to Trinetra server.`);
+      console.log(`Volunteer '${volunteerName}' connected to Vulcan server.`);
       setError(null);
       // Once connected, register with the server and send the name
       socket.emit('register_volunteer', { name: volunteerName });
@@ -127,7 +127,7 @@ const LoginScreen = ({ onRegister }) => {
   return (
     <div className="bg-slate-900 text-slate-300 min-h-screen flex flex-col items-center justify-center p-4">
       <Siren size={60} className="text-sky-400 mb-4" />
-      <h1 className="text-4xl font-bold text-white mb-2">Trinetra Volunteer</h1>
+      <h1 className="text-4xl font-bold text-white mb-2">Vulcan Volunteer</h1>
       <p className="text-lg text-slate-400 mb-8">Please enter your name to register for duty.</p>
       <form onSubmit={handleSubmit} className="w-full max-w-sm">
         <input

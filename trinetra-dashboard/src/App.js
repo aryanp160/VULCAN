@@ -36,13 +36,13 @@ export default function App() {
     const socket = socketRef.current;
 
     socket.on('connect', () => {
-      console.log('Dashboard connected to Trinetra server.');
+      console.log('Dashboard connected to Vulcan server.');
       setError(null);
     });
 
     socket.on('disconnect', () => {
       console.log('Dashboard disconnected.');
-      setError("Connection to Trinetra engine lost.");
+      setError("Connection to Vulcan engine lost.");
       setData(prev => ({ ...prev, status: 'Disconnected', activeVolunteerCount: 0 }));
     });
     
@@ -147,8 +147,8 @@ export default function App() {
 }
 
 // --- Sub-Components ---
-const Header = ({ status, latency, statusColor }) => ( <header className="flex flex-wrap justify-between items-center pb-4 border-b border-slate-700"><h1 className="text-3xl font-bold text-white tracking-wider"><Rss size={32} className="inline-block mr-3 text-sky-400" />TRINETRA <span className="font-light text-slate-400">Live</span></h1><div className="flex items-center space-x-6 mt-4 sm:mt-0"><span className={`font-bold text-lg transition-colors duration-500 ${statusColor}`}>{status.toUpperCase()}</span><span className="text-sm text-slate-400 font-mono">Latency: {(latency || 0).toFixed(2)}s</span></div></header> );
-const StatusAlert = ({ status, isDispatchActive, statusColor }) => { const messages = { 'Safe': 'Crowd conditions are normal.', 'Moderate Risk': 'Increased crowd density or chaotic flow detected.', 'High Risk': `Sustained high-risk event detected! Dispatch signal is ACTIVE.`, 'Connecting...': 'Attempting to connect to the Trinetra AI engine...', 'Disconnected': 'Connection to the AI engine has been lost.' }; return ( <div className="text-center"><h3 className={`text-2xl font-bold mb-1 transition-colors duration-500 ${statusColor}`}>{status.toUpperCase()}</h3><p className="text-slate-300">{isDispatchActive && status !== 'High Risk' ? 'Monitoring situation. Dispatch signal remains active.' : messages[status]}</p></div> ); };
+const Header = ({ status, latency, statusColor }) => ( <header className="flex flex-wrap justify-between items-center pb-4 border-b border-slate-700"><h1 className="text-3xl font-bold text-white tracking-wider"><Rss size={32} className="inline-block mr-3 text-sky-400" />VULCAN <span className="font-light text-slate-400">Live</span></h1><div className="flex items-center space-x-6 mt-4 sm:mt-0"><span className={`font-bold text-lg transition-colors duration-500 ${statusColor}`}>{status.toUpperCase()}</span><span className="text-sm text-slate-400 font-mono">Latency: {(latency || 0).toFixed(2)}s</span></div></header> );
+const StatusAlert = ({ status, isDispatchActive, statusColor }) => { const messages = { 'Safe': 'Crowd conditions are normal.', 'Moderate Risk': 'Increased crowd density or chaotic flow detected.', 'High Risk': `Sustained high-risk event detected! Dispatch signal is ACTIVE.`, 'Connecting...': 'Attempting to connect to the Vulcan AI engine...', 'Disconnected': 'Connection to the AI engine has been lost.' }; return ( <div className="text-center"><h3 className={`text-2xl font-bold mb-1 transition-colors duration-500 ${statusColor}`}>{status.toUpperCase()}</h3><p className="text-slate-300">{isDispatchActive && status !== 'High Risk' ? 'Monitoring situation. Dispatch signal remains active.' : messages[status]}</p></div> ); };
 const MainScoreGauge = ({ score, color }) => ( <ResponsiveContainer width="100%" height={300}><RadialBarChart innerRadius="70%" outerRadius="100%" data={[{ value: score }]} startAngle={180} endAngle={-180}><PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} /><RadialBar background dataKey="value" cornerRadius={10} fill={color} className="transition-all duration-500" /><text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" className="fill-current text-white font-bold text-6xl">{score.toFixed(1)}</text></RadialBarChart></ResponsiveContainer> );
 const MetricCard = ({ icon, title, value, unit }) => ( <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700"><div className="flex items-center text-slate-400 mb-2">{icon}<h4 className="ml-2 font-semibold">{title}</h4></div><div className="text-4xl font-bold text-white">{value}{unit && <span className="text-xl font-normal text-slate-400 ml-1">{unit}</span>}</div></div> );
 const LogPanel = ({ log }) => ( <div className="h-full flex flex-col"><h3 className="text-lg font-bold mb-4 text-slate-300">Event Log</h3><div className="flex-grow space-y-2 overflow-y-auto pr-2 max-h-[300px]">{log.length === 0 && <p className="text-slate-500">Awaiting system data...</p>}{log.map((entry, index) => { const logColor = entry.status.includes('High') ? 'text-red-400' : entry.status.includes('Moderate') ? 'text-yellow-400' : 'text-green-400'; return ( <div key={index} className="flex justify-between items-center text-sm font-mono bg-slate-900/50 p-2 rounded-md"><span className="text-slate-400">{entry.time}</span><span className={logColor}>Score: {entry.score}</span><span className={`font-bold ${logColor}`}>{entry.status.replace(/â🔴|🟡|🟢\s/g, '')}</span></div> ) })}</div></div> );
